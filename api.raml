@@ -1,0 +1,158 @@
+#%RAML 0.8
+title: Tictail
+version: v1
+baseUri: https://api.tictail.com/{version}/
+protocols: [ HTTPS ]
+/stores:
+  /{storeId}:
+    get:
+      description: "Get a store (storeId)"
+      responses:
+        200:
+          description: "Ok"
+        404:
+          description: "No such store"
+    patch:
+      description: "Update a store (storeId). Supports partial updates, where values not specified in the request body are not overwritten."
+    /cards:
+      post:
+        description: "Add a new card to the store (storeId)"
+        responses:
+          201:
+            description:"The card was successfully created"
+          400:
+            description:"One or more parameters are missing"
+          404:
+            description:"No such store"
+      /{cardId}:
+        get:
+          description: "Get one of the cards (cardId) added by your app to this store (storeId)"
+          responses:
+            200:
+              description: "Ok"
+            404:
+              description: "No such card"
+    /customers:
+      get:
+        description: "Get a list of all customers in this store (storeId)"
+        responses:
+          200:
+            description:"Ok"
+          404:
+            description:"No such store"
+      /{customerId}:
+        get:
+          description: "Get a single customer (customerId) of this store (storeId)"
+          responses:
+            200:
+              description: "Ok"
+            404:
+              description:"No such store or customer"
+    /products:
+      get:
+        description: "Retrieve a list of products in this store (storeId)"
+        responses:
+          200:
+            description: "OK"
+          404:
+            description: "No such store"
+      post:
+        description: "Add a new product to this store (storeId)"
+      /{productIds}:
+        get:
+          description: "Retrieve one or several products (productIds) in this store (storeId)"
+          responses:
+            200:
+              description: "Ok"
+            404:
+              description: "No such product"
+        put:
+          description: "Update the position of a product (productIds)"
+        patch:
+          description: "Update a product (productIds) in this store (storeId). Supports partial updates, where values not specified in the request body are not overwritten."          
+    /categories:
+      get:
+        description: "Get a list of categories of this store (storeId)"
+        responses:
+          200:
+            description: "OK"
+          404:
+            description: "No such store"
+    /followers:
+      get:
+        description: "Get a list of followers of this store (storeId)"
+        responses:
+          200:
+            description: "OK"
+          404:
+            description: "No such store"
+      post:
+        description: "Add a new follower of this store (storeId)"
+        responses:
+          201:
+            description: "The follower was successfully created"
+          400:
+            description: "One or more parameters are missing"
+          404:
+            description: "No such store"
+      /{followerId}:
+        delete:
+          description: "Remove a follower of this store (storeId)"
+          responses:
+            204:
+              description: "The follower was removed"
+            404:
+              description: "No such store or follower"
+    /orders:
+      get:
+        description: "Retrieve a list of orders for this store (storeId), sorted by createdAt"
+        responses:
+          200:
+            description: "OK"
+      /{orderId}:
+        get:
+          description: "Retrieve an order for this store (storeId)"
+          responses:
+            200:
+              description: "OK"
+            404:
+              description: "No such order"
+    /theme:
+      get:
+        description: "Retrieve a store's (storeId) theme"
+        responses:
+          200:
+            description: "OK"
+          404:
+            description: "Store not found"
+    /in_app_purchases:
+      get:
+        description: "Get all In-App Purchase tokens for this store (storeId)"
+        responses:
+          200:
+            description: "OK"
+      post:
+        description: "Create an In-App Purchase token for this store (storeId)"
+        responses:
+          201:
+            description: "Purchase token was successfully created"
+          400:
+            description: "Currency is not the same as the store's"
+          403:
+            description: "App unauthorized to use in-app purchases"
+          404:
+            description: "No such store"
+      /{purchaseId}:
+        get:
+          description:"Get an In-App Purchase token (purchaseId) for this store (storeId)"
+          responses:
+            200:
+              description: "OK"
+            404:
+              description: "No such purchase id"
+/me:
+  get:
+    description: "Check which store the provided access token has access to"
+    responses:
+      200:
+        description: "OK"
