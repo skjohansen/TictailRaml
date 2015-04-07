@@ -19,11 +19,11 @@ protocols: [ HTTPS ]
         description: "Add a new card to the store (storeId)"
         responses:
           201:
-            description:"The card was successfully created"
+            description: "The card was successfully created"
           400:
-            description:"One or more parameters are missing"
+            description: "One or more parameters are missing"
           404:
-            description:"No such store"
+            description: "No such store"
       /{cardId}:
         get:
           description: "Get one of the cards (cardId) added by your app to this store (storeId)"
@@ -37,9 +37,9 @@ protocols: [ HTTPS ]
         description: "Get a list of all customers in this store (storeId)"
         responses:
           200:
-            description:"Ok"
+            description: "Ok"
           404:
-            description:"No such store"
+            description: "No such store"
       /{customerId}:
         get:
           description: "Get a single customer (customerId) of this store (storeId)"
@@ -47,7 +47,7 @@ protocols: [ HTTPS ]
             200:
               description: "Ok"
             404:
-              description:"No such store or customer"
+              description: "No such store or customer"
     /products:
       get:
         description: "Retrieve a list of products in this store (storeId)"
@@ -144,7 +144,7 @@ protocols: [ HTTPS ]
             description: "No such store"
       /{purchaseId}:
         get:
-          description:"Get an In-App Purchase token (purchaseId) for this store (storeId)"
+          description: "Get an In-App Purchase token (purchaseId) for this store (storeId)"
           responses:
             200:
               description: "OK"
