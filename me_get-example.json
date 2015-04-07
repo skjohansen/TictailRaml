@@ -1,0 +1,27 @@
+{
+  "id": "sdh783",
+  "name": "Some store",
+  "short_description":"some thine",
+  "followers":23,
+  "currency":"SEK",
+  "vat":{
+    "rate":"abc",
+    "region":"dcf",
+    "included_in_prices":"jk",
+    "applied_to_shipping":"kdj"
+  },
+  "language":"sv-SE",
+  "country":"SE",
+  "logotype":{},
+  "wallpapers":{},
+  "description":"some thing",
+  "url":"http://mystore.com",
+  "subdomain":"store",
+  "created_at":"2015-04-07T12:32:45Z",
+  "modified_at":"2015-04-07T12:32:45Z",
+  "contact_email":"som@email.com",
+  "storekeeper_email":"another@email.com",
+  "sandbox":true,
+  "dashboard_url":"http://dashboard.com",
+  "appstore_currency":"SEK"
+}

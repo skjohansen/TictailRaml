@@ -156,3 +156,7 @@ protocols: [ HTTPS ]
     responses:
       200:
         description: "OK"
+        body:
+          application/json:
+            schema: !include me_get-schema.json
+            example: !include me_get-example.json
